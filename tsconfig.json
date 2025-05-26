@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",                      // modern JavaScript
+    "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],                      // use native ESM
+    "moduleResolution": "node",              // resolve modules like Node
+    "esModuleInterop": true,                 // allow default imports from CJS
+    "strict": true,                          // enable all strict type-checking options
+    "jsx": "preserve",                       // for Vue JSX support if needed
+    "sourceMap": true, 
+    "skipLibCheck": true,                      // generate source maps
+    "resolveJsonModule": true,               // import JSON files
+    "baseUrl": ".",   
+    "types": ["vite/client"],                       // project root
+    "paths": {
+      "@/*": ["src/*"]                       // shorthand alias for imports
+    },
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/**/*.worker.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "public"
+  ]
+}

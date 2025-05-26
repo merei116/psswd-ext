@@ -1,0 +1,26 @@
+/* _applyStyles.css */
+@layer components {
+  .card {
+    @apply max-w-xl mx-auto bg-white p-8 rounded-2xl shadow-lg text-center;
+  }
+
+  .title {
+    @apply text-2xl font-bold mb-4;
+  }
+
+  .field {
+    @apply flex flex-col gap-1 mb-3;
+  }
+
+  .input {
+    @apply w-full p-3 border border-gray-300 rounded-xl;
+  }
+
+  .btn {
+    @apply w-full bg-blue-500 text-white py-2 rounded-xl hover:bg-blue-600 cursor-pointer font-semibold;
+  }
+
+  .fullscreen {
+    @apply h-screen flex items-center justify-center bg-gray-100;
+  }
+}
