@@ -23,6 +23,12 @@ def run(cmd, cwd=None):
         print("✅ Успешно")
 
 def main():
+    # Определяем базовую директорию
+    if hasattr(sys, '_MEIPASS'):
+        base_path = Path(sys._MEIPASS)
+    else:
+        base_path = Path(__file__).resolve().parent.parent  # ← адаптируй при необходимости
+
     messagebox.showinfo(APPNAME, "Сейчас выберите файл экспорта своих паролей.")
     csv = choose_csv()
     if not csv:
@@ -32,13 +38,13 @@ def main():
     work = Path(tempfile.mkdtemp(prefix="pg-"))
     print(f"🗂️  Временная директория: {work}")
 
-    src = Path(sys._MEIPASS) / "extension-src"
+    src = base_path / "extension-src"
     print("📦 Копируем расширение...")
     shutil.copytree(src, work / "ext", dirs_exist_ok=True)
 
     print("📦 Копируем модель...")
     model_dir = work / "model"
-    shutil.copytree(Path(sys._MEIPASS) / "model", model_dir, dirs_exist_ok=True)
+    shutil.copytree(base_path / "model", model_dir, dirs_exist_ok=True)
 
     print("🧠 Обучение модели + генерация паттернов...")
     run([
